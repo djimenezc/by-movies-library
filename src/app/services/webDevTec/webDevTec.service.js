@@ -1,5 +1,6 @@
 export class WebDevTecService {
   constructor () {
+    //noinspection BadExpressionStatementJS
     'ngInject';
 
     this.data = [
