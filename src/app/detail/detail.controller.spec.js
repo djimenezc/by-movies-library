@@ -1,13 +1,13 @@
-describe('controllers', () => {
+describe('controller detail', () => {
   let vm;
 
   beforeEach(angular.mock.module('byMoviesLibrary'));
 
-  beforeEach(inject(($controller, webDevTec, toastr) => {
-    spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-    spyOn(toastr, 'info').and.callThrough();
+  beforeEach(inject(($controller) => {
+    // spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
+    // spyOn(toastr, 'info').and.callThrough();
 
-    vm = $controller('MainController');
+    vm = $controller('DetailController');
   }));
 
   it('should have a timestamp creation date', () => {

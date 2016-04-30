@@ -4,6 +4,7 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
+import { DetailController } from './detail/detail.controller';
 import { ListController } from './list/list.controller';
 import { FilmService } from './services/film/film.service';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
@@ -22,5 +23,6 @@ angular.module('byMoviesLibrary', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .service('filmService', FilmService)
   .controller('MainController', MainController)
   .controller('ListController', ListController)
+  .controller('DetailController', DetailController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

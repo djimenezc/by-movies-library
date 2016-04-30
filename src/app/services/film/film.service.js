@@ -1,17 +1,12 @@
 
 export class FilmService {
 
-  constructor () {
+  constructor ($http) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
     this.creationDate = 1462012740839;
-
-    this.films = {
-      1 : {
-        
-      }
-    }
+    this.$http = $http;
   }
 
   /**
