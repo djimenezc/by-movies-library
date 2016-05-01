@@ -1,7 +1,6 @@
-
 export class FilmService {
 
-  constructor ($http, $q) {
+  constructor($http, $q) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
@@ -15,7 +14,7 @@ export class FilmService {
    *
    * @param id
    * @returns {Function}
-     */
+   */
   getFilm(id) {
     var defer = this.$q.defer();
 
@@ -36,4 +35,17 @@ export class FilmService {
 
     return defer.promise;
   }
+
+  getFilms() {
+
+    return [{
+      id: 1,
+      name: 'david'
+    },
+      {
+        id: 2,
+        name: 'david2'
+      }]
+  }
+
 }

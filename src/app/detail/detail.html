@@ -1,5 +1,9 @@
 <div class="container">
 
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
   <div class="jumbotron text-center">
     <h1>Film detail</h1>
     <hr/>
@@ -19,9 +23,9 @@
       Genre: {{ movie.genre }}
     </p>
     <p>
-      <a href="#/" class="btn btn-primary">
+      <div ng-click="doTheBack()" class="btn btn-primary">
         Back
-      </a>
+      </div>
     </p>
   </div>
 

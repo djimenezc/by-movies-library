@@ -8,7 +8,6 @@ import { DetailController } from './detail/detail.controller';
 import { ListController } from './list/list.controller';
 import { FilmService } from './services/film/film.service';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
-import { WebDevTecService } from '../app/services/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
@@ -19,7 +18,6 @@ angular.module('byMoviesLibrary', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .config(routerConfig)
   .run(runBlock)
   .service('githubContributor', GithubContributorService)
-  .service('webDevTec', WebDevTecService)
   .service('filmService', FilmService)
   .controller('MainController', MainController)
   .controller('ListController', ListController)

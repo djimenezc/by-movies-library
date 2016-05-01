@@ -1,5 +1,5 @@
 export class DetailController {
-  constructor($scope, filmService, $log) {
+  constructor($scope, filmService, $log, $window) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
@@ -13,6 +13,11 @@ export class DetailController {
       this.$scope.error = 'unable to get the film information';
       $log.log(`Error fetching movie name: ${this.$scope.movie.name}`);
     });
+
+    $scope.doTheBack = function() {
+      $window.history.back();
+      $log.log('Back');
+    };
 
   }
 

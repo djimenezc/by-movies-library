@@ -10,9 +10,9 @@ describe('controllers', () => {
     vm = $controller('ListController');
   }));
 
-  it('should have a timestamp creation date', () => {
-    expect(vm.creationDate).toEqual(jasmine.any(Number));
-  });
+  // it('should have a timestamp creation date', () => {
+  //   expect(vm.creationDate).toEqual(jasmine.any(Number));
+  // });
 
   // it('should define animate class after delaying timeout', inject($timeout => {
   //   $timeout.flush();
