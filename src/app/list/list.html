@@ -31,7 +31,24 @@
       <tbody>
     </table>
 
-
+    <!-- pager -->
+    <ul ng-if="list.pager.pages.length" class="pagination">
+      <li ng-class="{disabled:list.pager.currentPage === 1}">
+        <a ng-click="list.setPage(1)">First</a>
+      </li>
+      <li ng-class="{disabled:list.pager.currentPage === 1}">
+        <a ng-click="list.setPage(list.pager.currentPage - 1)">Previous</a>
+      </li>
+      <li ng-repeat="page in list.pager.pages" ng-class="{active:list.pager.currentPage === page}">
+        <a ng-click="list.setPage(page)">{{page}}</a>
+      </li>
+      <li ng-class="{disabled:list.pager.currentPage === list.pager.totalPages}">
+        <a ng-click="list.setPage(list.pager.currentPage + 1)">Next</a>
+      </li>
+      <li ng-class="{disabled:list.pager.currentPage === list.pager.totalPages}">
+        <a ng-click="list.setPage(list.pager.totalPages)">Last</a>
+      </li>
+    </ul>
   </div>
 
 </div>
