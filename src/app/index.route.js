@@ -12,7 +12,8 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/list?page=:nPage&records=:pageSize',
       templateUrl: 'app/list/list.html',
       controller: 'ListController',
-      controllerAs: 'list'
+      controllerAs: 'list',
+      reloadOnSearch: false
     });
 
   $urlRouterProvider.otherwise('/list');
