@@ -36,16 +36,26 @@ export class FilmService {
     return defer.promise;
   }
 
-  getFilms() {
+  getFilms(nPage, pageSize) {
 
-    return [{
-      id: 1,
-      name: 'david'
-    },
-      {
-        id: 2,
-        name: 'david2'
-      }]
+    var defer = this.$q.defer();
+
+    this.$http({
+      method: 'GET',
+      url: `http://localhost:3000/v1/films?records=${pageSize}&page=${nPage}`,
+      headers: {
+        'Content-Type': 'application/JSON'
+      }
+    }).then((response) => {
+
+      defer.resolve(response.data);
+    }, (response) => {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      defer.reject(response);
+    });
+
+    return defer.promise;
   }
 
 }

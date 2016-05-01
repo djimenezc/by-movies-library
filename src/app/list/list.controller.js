@@ -1,6 +1,6 @@
 export class ListController {
 
-  constructor(filmService, pagerService) {
+  constructor(filmService, pagerService, $log, $scope) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
@@ -8,6 +8,8 @@ export class ListController {
     this.creationDate = 1462012740839;
     this.filmService = filmService;
     this.pagerService = pagerService;
+    this.$log = $log;
+    this.$scope = $scope;
     this.settings = {
       totalPages: 15,
       pageSize: 10,
@@ -18,25 +20,22 @@ export class ListController {
     this.setPage(1);
   }
 
-  setPage(page) {
-    if (page < 1 || page > this.settings.totalPages) {
+  setPage(nPage) {
+    if (nPage < 1 || nPage > this.settings.totalPages) {
       return;
     }
 
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.settings.totalPages, page, this.settings.pageSize);
+    this.pager = this.pagerService.getPager(this.settings.totalItems, nPage, this.settings.pageSize);
 
     // get current page of items
     // vm.items = vm.dummyItems.slice(vm.pager.startIndex, vm.pager.endIndex);
-    this.getFilms(this.filmService);
-  }
 
-  getFilms(filmService) {
-
-    this.films = filmService.getFilms();
-
-    angular.forEach(this.films, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
+    this.filmService.getFilms(nPage -1, this.settings.pageSize).then((data) => {
+      this.$scope.films = data;
+    }).catch(() => {
+      this.$scope.error = 'unable to get the films information';
+      this.$log.log(`Error fetching movies`);
     });
   }
 
