@@ -2,12 +2,6 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
   //noinspection BadExpressionStatementJS
   'ngInject';
   $stateProvider
-    .state('home', {
-      url: '/',
-      templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      controllerAs: 'main'
-    })
     .state('filmDetail', {
       url: '/film/:id',
       templateUrl: 'app/detail/detail.html',
@@ -15,7 +9,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'detail'
     })
     .state('filmList', {
-      url: '/list',
+      url: '/',
       templateUrl: 'app/list/list.html',
       controller: 'ListController',
       controllerAs: 'list'
