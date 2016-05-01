@@ -9,7 +9,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'detail'
     })
     .state('filmList', {
-      url: '/list',
+      url: '/list?page=:nPage&records=:pageSize',
       templateUrl: 'app/list/list.html',
       controller: 'ListController',
       controllerAs: 'list'

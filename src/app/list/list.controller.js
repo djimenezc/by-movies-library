@@ -1,8 +1,10 @@
 export class ListController {
 
-  constructor(filmService, pagerService, $log, $scope) {
+  constructor(filmService, pagerService, $log, $scope, $location) {
     //noinspection BadExpressionStatementJS
     'ngInject';
+
+    const params = $location.search();
 
     this.creationDate = 1462012740839;
     this.filmService = filmService;
@@ -10,13 +12,14 @@ export class ListController {
     this.$log = $log;
     this.$scope = $scope;
     this.settings = {
-      pageSize: 10,
-      totalItems: 145
+      pageSize: parseInt(params.records) ? parseInt(params.records) : 10,
+      totalItems: 145,
+      page : parseInt(params.page) ? parseInt(params.page) : 1
     };
 
     this.settings.totalPages = ListController.calculateTotalPages(this.settings.totalItems, this.settings.pageSize);
 
-    this.setPage(1);
+    this.setPage(this.settings.page);
   }
 
   static calculateTotalPages (totalItems, pageSize) {
