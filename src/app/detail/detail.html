@@ -1,9 +1,5 @@
 <div class="container">
 
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
   <div class="jumbotron text-center">
     <h1>Film detail</h1>
     <hr/>
@@ -13,8 +9,20 @@
     <p>
       Name: {{ movie.name }}
     </p>
-    </ul>
+    <p>
+      Description: {{ movie.description }}
+    </p>
+    <p>
+      Year: {{ movie.year }}
+    </p>
+    <p>
+      Genre: {{ movie.genre }}
+    </p>
+    <p>
+      <a href="#/" class="btn btn-primary">
+        Back
+      </a>
+    </p>
   </div>
-
 
 </div>
