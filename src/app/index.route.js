@@ -9,11 +9,11 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'detail'
     })
     .state('filmList', {
-      url: '/',
+      url: '/list',
       templateUrl: 'app/list/list.html',
       controller: 'ListController',
       controllerAs: 'list'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/list');
 }
