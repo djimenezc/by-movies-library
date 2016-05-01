@@ -4,20 +4,24 @@ export class ListController {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
-    this.films = [];
     this.creationDate = 1462012740839;
     this.filmService = filmService;
     this.pagerService = pagerService;
     this.$log = $log;
     this.$scope = $scope;
     this.settings = {
-      totalPages: 15,
       pageSize: 10,
       totalItems: 145
     };
 
+    this.settings.totalPages = ListController.calculateTotalPages(this.settings.totalItems, this.settings.pageSize);
 
     this.setPage(1);
+  }
+
+  static calculateTotalPages (totalItems, pageSize) {
+
+    return Math.ceil(totalItems / pageSize);
   }
 
   setPage(nPage) {
@@ -25,11 +29,9 @@ export class ListController {
       return;
     }
 
-    // get pager object from service
+    //noinspection JSUnusedGlobalSymbols
     this.pager = this.pagerService.getPager(this.settings.totalItems, nPage, this.settings.pageSize);
 
-    // get current page of items
-    // vm.items = vm.dummyItems.slice(vm.pager.startIndex, vm.pager.endIndex);
 
     this.filmService.getFilms(nPage -1, this.settings.pageSize).then((data) => {
       this.$scope.films = data;
