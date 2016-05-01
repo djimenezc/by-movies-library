@@ -11,6 +11,7 @@ export class ListController {
     this.pagerService = pagerService;
     this.$log = $log;
     this.$scope = $scope;
+    this.$location = $location;
     this.settings = {
       pageSize: parseInt(params.records) ? parseInt(params.records) : 10,
       totalItems: 145,
@@ -31,6 +32,9 @@ export class ListController {
     if (nPage < 1 || nPage > this.settings.totalPages) {
       return;
     }
+
+    this.$location.search('page',nPage);
+    this.$location.search('records',this.settings.pageSize);
 
     //noinspection JSUnusedGlobalSymbols
     this.pager = this.pagerService.getPager(this.settings.totalItems, nPage, this.settings.pageSize);
