@@ -1,5 +1,5 @@
 export class DetailController {
-  constructor($scope, filmService, $log, $window) {
+  constructor($scope, filmService, $log, $window, $stateParams) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
@@ -7,7 +7,9 @@ export class DetailController {
     this.$scope = $scope;
     this.$log = $log;
 
-    this.$scope.movie = filmService.getFilm(2).then((data) => {
+    let filmId = $stateParams.id;
+
+    this.$scope.movie = filmService.getFilm(filmId).then((data) => {
       this.$scope.movie = data;
     }).catch(() => {
       this.$scope.error = 'unable to get the film information';
