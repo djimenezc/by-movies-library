@@ -7,6 +7,7 @@ import { DetailController } from './detail/detail.controller';
 import { ListController } from './list/list.controller';
 import { FilmService } from './services/film/film.service';
 import { PagerService } from './services/pager/pager.service';
+import { CacheService } from './services/cache/cache.service';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
@@ -30,7 +31,7 @@ angular.module('byMoviesLibrary', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .service('githubContributor', GithubContributorService)
   .service('filmService', FilmService)
   .service('pagerService', PagerService)
-  .service('pagerService', PagerService)
+  .service('cacheService', CacheService)
   .controller('ListController', ListController)
   .controller('DetailController', DetailController)
   .directive('acmeNavbar', NavbarDirective)

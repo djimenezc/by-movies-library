@@ -1,13 +1,23 @@
 export class CacheService {
 
-  constructor($http, $q) {
+  constructor() {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
     this.creationDate = 1462012740839;
-    this.$http = $http;
-    this.$q = $q;
 
+    this.cache = {};
+
+  }
+  
+  keepInCache(key, value) {
+    
+    this.cache[key] = value;
+  }
+  
+  getValue(key) {
+    
+    return this.cache[key];
   }
 
 }
