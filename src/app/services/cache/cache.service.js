@@ -6,7 +6,7 @@ export class CacheService {
 
     this.creationDate = 1462012740839;
 
-    this.cache = {};
+    this._cache = {};
 
   }
 
@@ -17,7 +17,7 @@ export class CacheService {
      */
   keepInCache(key, value) {
 
-    this.cache[key] = value;
+    this._cache[key] = value;
   }
 
   /**
@@ -27,7 +27,17 @@ export class CacheService {
      */
   getValue(key) {
 
-    return this.cache[key];
+    return this._cache[key];
+  }
+
+  /**
+   * Indicates if a key is been used in the map
+   * @param key
+   * @returns {boolean}
+     */
+  isElementInCache (key) {
+
+    return !!this._cache[key];
   }
 
 }
