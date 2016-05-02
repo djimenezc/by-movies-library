@@ -11,11 +11,11 @@ export class DetailController {
     //noinspection JSUnresolvedVariable
     this.cacheService = cacheService;
 
-    let filmId = $stateParams.id;
+    const filmId = $stateParams.id;
 
-    if(cacheService.isElementInCache(filmId)) {
+    if(this.cacheService.isElementInCache(filmId)) {
 
-      this.$scope.movie = cacheService.getValue(filmId);
+      this.$scope.movie = this.cacheService.getValue(filmId);
     } else {
       this.getElementFromServer(filmId);
     }

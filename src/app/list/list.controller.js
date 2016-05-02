@@ -1,14 +1,19 @@
 export class ListController {
 
-  constructor(filmService, pagerService, $log, $scope, $location) {
+  constructor(filmService, pagerService, $log, $scope, $location, cacheService) {
     //noinspection BadExpressionStatementJS
     'ngInject';
 
     const params = $location.search();
 
     this.creationDate = 1462012740839;
+    //noinspection JSUnresolvedVariable
     this.filmService = filmService;
+    //noinspection JSUnresolvedVariable
     this.pagerService = pagerService;
+    //noinspection JSUnresolvedVariable
+    this.cacheService = cacheService;
+
     this.$log = $log;
     this.$scope = $scope;
     this.$location = $location;
@@ -50,9 +55,27 @@ export class ListController {
     //noinspection JSUnusedGlobalSymbols
     this.pager = this.pagerService.getPager(this.settings.totalItems, nPage, this.settings.pageSize);
 
+    var cacheId =  `list-${this.settings.pageSize}-${nPage}` ;
+
+    if(this.cacheService.isElementInCache(cacheId)) {
+
+      this.$scope.movie = this.cacheService.getValue(cacheId);
+    } else {
+      this.getElementFromServer(nPage, cacheId);
+    }
+
+  }
+
+  /**
+   * Fetch film page information from server
+   * @param nPage
+   * @param cacheId
+   */
+  getElementFromServer(nPage, cacheId) {
 
     this.filmService.getFilms(nPage - 1, this.settings.pageSize).then((data) => {
       this.$scope.films = data;
+      this.cacheService.keepInCache(cacheId, data);
     }).catch(() => {
       this.$scope.error = 'unable to get the films information';
       this.$log.log(`Error fetching movies`);
