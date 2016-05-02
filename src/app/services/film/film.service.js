@@ -11,7 +11,7 @@ export class FilmService {
   }
 
   /**
-   *
+   * Returns an film identified by the id
    * @param id
    * @returns {Function}
    */
@@ -36,6 +36,12 @@ export class FilmService {
     return defer.promise;
   }
 
+  /**
+   * Returns a films set identified by the page number and the page size
+   * @param nPage
+   * @param pageSize
+   * @returns {Function}
+     */
   getFilms(nPage, pageSize) {
 
     var defer = this.$q.defer();

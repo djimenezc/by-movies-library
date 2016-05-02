@@ -12,8 +12,9 @@ export class PagerService {
 
   }
 
+  //noinspection JSMethodCanBeStatic
   /**
-   *
+   * Return the pager configuration for the parameters input
    * @param totalItems
    * @param currentPage
    * @param pageSize
