@@ -1,3 +1,5 @@
+/* global _:false */
+
 export class PagerService {
 
   constructor($http, $q) {
@@ -11,7 +13,7 @@ export class PagerService {
   }
 
   /**
-   * 
+   *
    * @param totalItems
    * @param currentPage
    * @param pageSize

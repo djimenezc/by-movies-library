@@ -1,5 +1,5 @@
 describe('controllers', () => {
-  let vm;
+  // let vm;
 
   beforeEach(angular.mock.module('byMoviesLibrary'));
 
@@ -7,7 +7,7 @@ describe('controllers', () => {
     spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
     spyOn(toastr, 'info').and.callThrough();
 
-    vm = $controller('ListController');
+    // vm = $controller('ListController');
   }));
 
   // it('should have a timestamp creation date', () => {
