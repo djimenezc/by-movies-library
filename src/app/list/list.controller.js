@@ -58,8 +58,8 @@ export class ListController {
     var cacheId =  `list-${this.settings.pageSize}-${nPage}` ;
 
     if(this.cacheService.isElementInCache(cacheId)) {
-
-      this.$scope.movie = this.cacheService.getValue(cacheId);
+      this.$scope.films = this.cacheService.getValue(cacheId);
+      this.$log.log('getting data from cache');
     } else {
       this.getElementFromServer(nPage, cacheId);
     }
